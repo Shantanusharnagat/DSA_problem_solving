@@ -1,50 +1,28 @@
-edges = [1, 2, 0, 0]
+import heapq
+def maxSquaresSum(nums, k):
+    MOD = 10**9 + 7
+    n = len(nums)
 
-        # Create a dictionary to store the parent nodes.
-hm = {}
-for i in range(len(edges)):
-    hm[i] = edges[i]
+    # Create a max heap to maintain the largest elements
+    max_heap = [-num for num in nums]
+    heapq.heapify(max_heap)
 
-# Create a memoization table to store the number of visited nodes in each subtree.
-memo = [-1] * len(edges)
+    while k > 0:
+        # Get the largest element from the max heap
+        largest = -heapq.heappop(max_heap)
 
-# Define a recursive function to count the number of visited nodes in a subtree.
-def dfs(node, vis, memo):
-    
+        # Perform the operation by dividing the largest element by 2
+        largest //= 2
 
-    # If the node has already been visited, return the number of visited nodes in the subtree rooted at that node.
-    if vis[node]:
-        return memo[node]
+        # Push the updated element back into the max heap
+        heapq.heappush(max_heap, -largest)
 
-    # Mark the node as visited.
-    vis[node] = True
+        k -= 1
 
-    # Get the parent node of the current node.
-    parent = hm[node]
-
-    # If the parent node is 0, then the current node is the root node.
-    # In this case, the number of visited nodes in the subtree rooted at the current node is simply 1.
-    if parent == 0:
-        num_visited_nodes = 1
-    else:
-        # Recursively count the number of visited nodes in the subtree rooted at the parent node.
-        num_visited_nodes = dfs(parent, vis, memo) + 1
-
-    # Store the number of visited nodes in the memoization table.
-    memo[node] = num_visited_nodes
-
-    # Mark the node as unvisited.
-    vis[node] = False
-
-    # Return the number of visited nodes in the subtree rooted at the current node.
-    return num_visited_nodes
-
-# Count the number of visited nodes in each subtree.
-result = []
-for i in range(len(edges)):
-    if memo[i] == -1:
-        vis = [False] * len(edges)
-        num_visited_nodes = dfs(i, vis, memo)
-        result.append(num_visited_nodes)
-
+    # Calculate the maximum sum of squares modulo 10^9 + 7
+    max_sum = sum(num**2 for num in max_heap) % MOD
+    return max_sum
+nums = [2, 6, 5, 8]
+k = 2
+result = maxSquaresSum(nums, k)
 print(result)

@@ -1,0 +1,1 @@
+{"name":"Local: round1A","url":"c:\\Users\\SHANTANU\\Desktop\\LeetCode\\Cses\\round1A.cpp","tests":[{"id":1696699107835,"input":"3\n7\n1 17 3 13 7 23 12\n5\n5 4 3 2 1\n4\n10 100 1000 10000\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\SHANTANU\\Desktop\\LeetCode\\Cses\\round1A.cpp","group":"local","local":true}
