@@ -1,0 +1,1 @@
+{"name":"Local: labyrinth","url":"c:\\Users\\SHANTANU\\Desktop\\LeetCode\\BFS\\labyrinth.cpp","tests":[{"id":1696838189533,"input":"5 8\n########\n#.A#...#\n#.##.#B#\n#......#\n########","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\SHANTANU\\Desktop\\LeetCode\\BFS\\labyrinth.cpp","group":"local","local":true}
